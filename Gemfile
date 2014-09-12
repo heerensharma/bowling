@@ -4,8 +4,12 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
 # Postgresql Gem
-gem 'pg'
-
+group :development, :test do # <<<< :development, not devlopment
+  gem 'sqlite3'
+end
+group :production do 
+	gem 'pg'
+end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
