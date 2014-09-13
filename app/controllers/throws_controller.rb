@@ -10,17 +10,15 @@ class ThrowsController < ApplicationController
   end
 
 	def create
-		if Throw.count == 0
-			@throw = Throw.new({'position' => 1, "pins_down" => params[:throw][:pins_down].to_i })
-		else
-			last_throw_num = Throw.last.position
-			@throw = Throw.new({'position' => last_throw_num+1, "pins_down" => params[:throw][:pins_down].to_i})
-		end
+		
+		game_obj = Game.new
+		@throw, valid_flag = game_obj.input_score params
+
 		respond_to do |format|
-			if @throw.save
-				format.html {redirect_to throws_url, notice: "Throw was added successfully"}
+			if valid_flag and @throw.save
+				format.html {redirect_to throws_url, notice: "Throw was added successfully with value #{Throw.last.pins_down}"}
 			else
-				format.html {redirect_to throws_url, notice: "Unsuccessful. Please check again"}
+				format.html {redirect_to throws_url, notice: "Unsuccessful. Please enter a valid value of number of pins down."}
 			end
 		end
 	end

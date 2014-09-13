@@ -2,23 +2,26 @@
 
 
 
+<% if @can_throw %>
+<h3>Enter the Pins Down in Trial</h3>
 <form method='post'	action='/throws'>
 	<label>Pins Down</label><br>
 	<input name="throw[pins_down]" size="30" type="number">
 
 	<br />
-	<% if @can_throw %>
 	<input type="submit" value="Submit Pins Down">
-	<% end %>
 </form>
+<% else %>
+<p><b>Total Score: <%= @frames.inject(:+)%></p> 
+<% end %>
 <br />
+
 
 <label>Notices:</label>
 <% if @can_throw %>
 <p id="notice"><%= notice %></p>
 <% else %>
-<% @throws.destroy_all %>
-<p>Game Finished! To start a new game press the new Game Button</p>	
+<p>Game Completed! To start a new game press the new Game Button</p>	
 <%end %>
 
 <br />
