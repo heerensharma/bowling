@@ -1,7 +1,9 @@
 Single User Bowling Application
 =======
 
-RoR for single user Bowling Application. User interface for this applcation is quite simple. User input valid pins_down value and Frames value got updated accordingly. There is also "Start New Game" button which can be clicked to start the new game session or user want to leave the current game session and give it a fresh start again. This application is also deployed on Heroku so can be check over this link [Bowling Application](http://heeren-bowling.herokuapp.com/throws).
+RoR for single user Bowling Application. User interface for this applcation is quite simple. User input valid pins_down value and Frames value got updated accordingly. There is also "Start New Game" button which can be clicked to start the new game session or user want to leave the current game session and give it a fresh start again. This application is also deployed on Heroku so can be check over this link [Bowling Application](http://heeren-bowling.herokuapp.com/throws). 
+
+This application is very basic in functionality and doesn't take any other requirements into consideration. For instance, it should be used by only one user at a time. This is so because there is no User Table and respective associations with this. But this can be easily imbibe in the current code by generating the user view and attaching a foriegn Key as User ID in **Throw** database table. 
 
 ##Developer's Section##
 
