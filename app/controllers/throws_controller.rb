@@ -26,6 +26,6 @@ class ThrowsController < ApplicationController
 	def destroy
 		Throw.destroy_all
 		redirect_to throws_url, notice: "New Game Started"
-	end
+	end	
 
 end

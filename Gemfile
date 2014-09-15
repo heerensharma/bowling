@@ -6,10 +6,14 @@ gem 'rails', '4.1.4'
 # Postgresql Gem
 group :development, :test do # <<<< :development, not devlopment
   gem 'sqlite3'
+  # gem 'minitest-rails', git: 'https://github.com/blowmage/minitest-rails.git'
+  gem 'minitest-spec-rails'
 end
 group :production do 
 	gem 'pg'
 end
+
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets

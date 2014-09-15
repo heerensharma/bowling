@@ -20,7 +20,7 @@ class Game
 		curr_pos=0
 		10.times do
 			begin
-				puts "Before frameNumber : #{frame_num}"
+				# puts "Before frameNumber : #{frame_num}"
 				#Evaluation of frame where "Strike" occured
 				if throws[curr_pos].pins_down == 10
 					begin
@@ -53,7 +53,7 @@ class Game
 					curr_pos+=2
 					frame_num+=1
 				end
-				puts "After frameNumber : #{frame_num}"
+				# puts "After frameNumber : #{frame_num}"
 				#this ensures that it is the last frame to evaluate
 				# making @can_throw attribute false
 				if frame_num == 10
@@ -78,7 +78,7 @@ class Game
 		#check whether if last shot try was not end up in a Strike,
 		#sum of last strike and current strike is not greater than 10 (as there are 10 pins only) 
 		begin
-			if Throw.last.pins_down != 10
+			if Throw.last.pins_down != 10 and Throw.last(2).map {|data_row| data_row.pins_down}.inject(:+) != 10
 				if (Throw.last.pins_down + params[:throw][:pins_down].to_i) > 10 then accept_flag = false end 
 			end
 		rescue
