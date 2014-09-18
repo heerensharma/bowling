@@ -1,0 +1,3 @@
+class ChantsController < ApplicationController
+
+end

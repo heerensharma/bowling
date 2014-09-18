@@ -1,0 +1,41 @@
+
+<script src="jquery.js" type="text/javascript"></script>
+
+<img STYLE="position:absolute; TOP:0px; LEFT:310px; WIDTH:370px; HEIGHT:610px" src="Sadoshiken_nichiken.jpg">
+
+<div id="maindiv">
+<h3>"Nam Myoho Renge Kyo"</h3>
+<h2>Lets get victorious together</h2>
+
+	<p>Please enter the number of minutes:</p>
+	<input id='duration' size="30" type="number">
+	<br />
+		<a href="#" class='playbutton'>Start Chanting</a>
+		<a href="#" class='pausebutton'>Pause</a>
+	<br />
+	<br />	
+	<audio src="buddha.mp3" type="audio/mpeg" id='music' controls>
+	</audio>
+</div>
+
+<script type='text/javascript'>
+	$('.playbutton').on('click',function() {
+		// console.log("Its clicked");
+		var music_file = $('#music')[0];
+		console.log($('#duration').val());
+		var position = (music_file.duration - $('#duration').val()*60)
+		music_file.currentTime = position
+		music_file.play();
+	});
+</script>
+
+<script type="text/javascript">
+	$('.pausebutton').on('click',function() {
+		// console.log("Its clicked");
+		var music_file = $('#music')[0];
+		// console.log($('#duration').val());
+		music_file.pause();
+
+	});
+</script>
+
